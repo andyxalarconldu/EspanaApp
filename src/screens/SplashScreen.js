@@ -1,31 +1,27 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, Text, View, Image, ActivityIndicator } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
 export default function SplashScreen({ navigation }) {
-  // BLOQUE 1: Efecto de tiempo (Temporizador)
-  // Se ejecuta al cargar la pantalla. Espera 4 segundos y usa .replace para saltar al Home sin permitir volver atrás.
+  // BLOQUE 1: Temporizador automático de 3 segundos para pasar al Home
   useEffect(() => {
     const timer = setTimeout(() => {
       navigation.replace('Home');
-    }, 4000); 
+    }, 3000); 
     return () => clearTimeout(timer);
   }, [navigation]);
 
-  // BLOQUE 2: Interfaz visual (Logo, título, indicador de carga y frase)
   return (
+    // BLOQUE 2: Estructura visual con los colores y textos oficiales
     <View style={styles.container}>
       <Image source={require('../../assets/espana_logo.jpeg')} style={styles.logo} />
-      <Text style={styles.title}>SELECCIÓN ESPAÑOLA</Text>
-      <ActivityIndicator size="large" color="#AA151B" />
-      <Text style={styles.txt}>¡Orgullo de Campeones!</Text>
+      <Text style={styles.text}>España - La Roja</Text>
     </View>
   );
 }
 
-// BLOQUE 3: Estilos visuales con StyleSheet
+// BLOQUE 3: Estilos visuales
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#F1BF00', alignItems: 'center', justifyContent: 'center', padding: 20 },
-  logo: { width: 140, height: 140, borderRadius: 70, borderWidth: 3, borderColor: '#AA151B', marginBottom: 20 },
-  title: { fontSize: 18, fontWeight: 'bold', color: '#AA151B', marginBottom: 20 },
-  txt: { fontSize: 14, fontStyle: 'italic', color: '#333', marginTop: 15 }
+  container: { flex: 1, backgroundColor: '#F1BF00', alignItems: 'center', justifyContent: 'center' },
+  logo: { width: 150, height: 150, borderRadius: 75, borderWidth: 4, borderColor: '#AA151B', marginBottom: 20 },
+  text: { fontSize: 20, fontWeight: 'bold', color: '#AA151B' }
 });
