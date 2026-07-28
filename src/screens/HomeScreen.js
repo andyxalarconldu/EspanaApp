@@ -17,9 +17,9 @@ export default function HomeScreen({ navigation }) {
 
         {/* BLOQUE 2: Datos básicos requeridos del equipo */}
         <View style={styles.card}>
-          <Text style={styles.label}>🌐 Confederación: UEFA</Text>
-          <Text style={styles.label}>👔 Entrenador: Seleccionador Nacional</Text>
-          <Text style={styles.label}>🏟️ Estadio: Santiago Bernabéu / Wanda</Text>
+          <Text style={styles.label}>🌐 Confederación: FIFA 2026</Text>
+          <Text style={styles.label}>👔 Entrenador: LUIS DE A FUENTE</Text>
+          <Text style={styles.label}>🏟️ Estadio de la Gran Final: Estadio Nueva York Nueva Jersey (MetLife Stadium)</Text>
         </View>
 
         {/* BLOQUE 3: Botón interactivo que navega a la pantalla de Jugadores */}
