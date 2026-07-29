@@ -8,7 +8,7 @@ export default function AboutScreen() {
       <Text style={styles.sub}>Qu</Text>
 
       <View style={styles.card}>
-        <Image source={require('../../assets/jugador1.jpg')} style={styles.img} />
+        <Image source={require('../../assets/Andy.jpeg')} style={styles.img} />
         <View style={styles.info}>
           <Text style={styles.name}>Andy Alarcon</Text>
           <Text style={styles.desc}>Estudiante de sdecimo semestre. Desarrollo móvil.</Text>
