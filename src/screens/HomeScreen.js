@@ -1,45 +1,34 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
-export default function HomeScreen({ navigation }) {
+export default function HomeScreen() {
   return (
-    // BLOQUE 1: Contenedor con desplazamiento vertical (ScrollView)
-    <ScrollView style={styles.container}>
-      
-      {/* Encabezado con el nombre del equipo */}
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>Selección Española de Fútbol</Text>
+    <View style={styles.container}>
+      <Text style={styles.welcome}>¡Hola</Text>
+      <Text style={styles.subtitle}>Torneo de selecciones 2026</Text>
+
+      <View style={styles.card}>
+        <Image source={require('../../assets/argentina.png')} style={styles.flag} />
+        <Text style={styles.badge}>SEGUNDO LUGAR</Text>
+        <Text style={styles.title}>ARGENTINA</Text>
+        <View style={styles.divider} />
+        <Text style={styles.row}>Director técnico: <Text style={styles.bold}>L. Scaloni</Text></Text>
+        <Text style={styles.row}>Capitán: <Text style={styles.bold}>L. Messi</Text></Text>
+        <Text style={styles.row}>Final: <Text style={styles.bold}>1 - 2</Text></Text>
       </View>
-
-      <View style={styles.content}>
-        {/* Imagen del escudo oficial */}
-        <Image source={require('../../assets/espana_logo.jpeg')} style={styles.escudo} />
-
-        {/* BLOQUE 2: Datos básicos requeridos del equipo */}
-        <View style={styles.card}>
-          <Text style={styles.label}>🌐 Confederación: FIFA 2026</Text>
-          <Text style={styles.label}>👔 Entrenador: LUIS DE A FUENTE</Text>
-          <Text style={styles.label}>🏟️ Estadio de la Gran Final: Estadio Nueva York Nueva Jersey (MetLife Stadium)</Text>
-        </View>
-
-        {/* BLOQUE 3: Botón interactivo que navega a la pantalla de Jugadores */}
-        <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('Jugadores')}>
-          <Text style={styles.btnTxt}>Ver Jugadores ➔</Text>
-        </TouchableOpacity>
-      </View>
-    </ScrollView>
+    </View>
   );
 }
 
-// BLOQUE 4: Estilos visuales de la pantalla Home
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#FAFAFA' },
-  header: { backgroundColor: '#AA151B', paddingVertical: 25, alignItems: 'center', borderBottomWidth: 5, borderBottomColor: '#F1BF00' },
-  headerTitle: { color: '#FFFFFF', fontSize: 20, fontWeight: 'bold' },
-  content: { padding: 20, alignItems: 'center' },
-  escudo: { width: 120, height: 120, borderRadius: 60, marginBottom: 20, borderWidth: 3, borderColor: '#AA151B' },
-  card: { backgroundColor: '#FFFFFF', padding: 20, borderRadius: 12, width: '100%', elevation: 3, borderLeftWidth: 6, borderLeftColor: '#F1BF00', marginBottom: 20 },
-  label: { fontSize: 15, marginBottom: 10, fontWeight: '700', color: '#333333' },
-  btn: { backgroundColor: '#AA151B', padding: 15, borderRadius: 10, width: '100%', alignItems: 'center' },
-  btnTxt: { color: '#FFFFFF', fontSize: 16, fontWeight: 'bold' }
+  container: { flex: 1, padding: 20, justifyContent: 'center', backgroundColor: '#f9f9f9' },
+  welcome: { fontSize: 22, fontWeight: 'bold', color: '#333', textAlign: 'center' },
+  subtitle: { fontSize: 14, color: '#777', marginBottom: 25, textAlign: 'center' },
+  card: { backgroundColor: '#fff', borderRadius: 12, padding: 20, alignItems: 'center', elevation: 3, borderWidth: 1, borderColor: '#eee' },
+  flag: { width: 60, height: 40, marginBottom: 10, resizeMode: 'contain' },
+  badge: { fontSize: 11, color: '#666', fontWeight: 'bold', marginBottom: 5 },
+  title: { fontSize: 20, fontWeight: 'bold', color: '#1E3A8A', marginBottom: 15 },
+  divider: { width: '100%', height: 1, backgroundColor: '#eee', marginBottom: 15 },
+  row: { fontSize: 15, color: '#444', marginBottom: 8, width: '100%' },
+  bold: { fontWeight: 'bold', color: '#000' }
 });

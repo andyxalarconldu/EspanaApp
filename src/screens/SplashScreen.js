@@ -1,27 +1,18 @@
-import React, { useEffect } from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View, Image, ActivityIndicator } from 'react-native';
 
-export default function SplashScreen({ navigation }) {
-  // BLOQUE 1: Temporizador automático de 3 segundos para pasar al Home
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      navigation.replace('Home');
-    }, 4000); 
-    return () => clearTimeout(timer);
-  }, [navigation]);
-
+export default function SplashScreen() {
   return (
-    // BLOQUE 2: Estructura visual con los colores y textos oficiales
     <View style={styles.container}>
-      <Image source={require('../../assets/espana_logo.jpeg')} style={styles.logo} />
-      <Text style={styles.text}>España - La Roja</Text>
+      <Image source={require('../../assets/espana_logo.jpeg')} style={styles.img} />
+      <Text style={styles.title}>Bienvenido</Text>
+      <ActivityIndicator size="large" color="#fff" style={{ marginTop: 20 }} />
     </View>
   );
 }
 
-// BLOQUE 3: Estilos visuales
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#F1BF00', alignItems: 'center', justifyContent: 'center' },
-  logo: { width: 150, height: 150, borderRadius: 75, borderWidth: 4, borderColor: '#AA151B', marginBottom: 20 },
-  text: { fontSize: 20, fontWeight: 'bold', color: '#AA151B' }
+  container: { flex: 1, backgroundColor: '#002B49', justifyContent: 'center', alignItems: 'center' },
+  img: { width: 100, height: 100, borderRadius: 50, marginBottom: 15 },
+  title: { fontSize: 24, color: '#fff', fontWeight: 'bold' }
 });
