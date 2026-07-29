@@ -1,24 +1,22 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-// BLOQUE 1: Importación de las pantallas de la aplicación
-import SplashScreen from './src/screens/SplashScreen';
+// Importa tus pantallas existentes
 import HomeScreen from './src/screens/HomeScreen';
 import PlayersScreen from './src/screens/PlayersScreen';
+import AboutScreen from './src/screens/aboutscreen';
 
-// BLOQUE 2: Creación del Stack Navigator para gestionar el flujo de navegación
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      {/* BLOQUE 3: Configuración de rutas (Arranca en Splash y oculta la barra superior por defecto) */}
-      <Stack.Navigator initialRouteName="Splash" screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Splash" component={SplashScreen} />
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Jugadores" component={PlayersScreen} />
-      </Stack.Navigator>
+      <Tab.Navigator>
+        <Tab.Screen name="Home Espana" component={HomeScreen} />
+        <Tab.Screen name="Jugadores" component={PlayersScreen} />
+        <Tab.Screen name="Acer de" component={AboutScreen} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
